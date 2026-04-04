@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 60% 97%;
+    --foreground: 340 10% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 10% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 10% 20%;
+    --primary: 345 58% 82%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 90 25% 72%;
+    --secondary-foreground: 90 25% 20%;
+    --muted: 30 20% 93%;
+    --muted-foreground: 340 5% 50%;
+    --accent: 270 35% 82%;
+    --accent-foreground: 270 35% 25%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 20% 90%;
+    --input: 345 30% 92%;
+    --ring: 345 58% 82%;
+    --radius: 1rem;
+    --cream: 30 60% 97%;
+    --blush: 345 58% 82%;
+    --sage: 90 25% 72%;
+    --lavender: 270 35% 82%;
+    --gold: 43 90% 61%;
+    --nude: 25 35% 85%;
+    --mint: 165 35% 80%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .theme-female {
+    --primary: 345 58% 82%;
+    --ring: 345 58% 82%;
+    --blush: 345 58% 90%;
+  }
+  .theme-male {
+    --primary: 210 50% 65%;
+    --ring: 210 50% 65%;
+    --blush: 210 50% 88%;
+  }
+  .theme-other {
+    --primary: 150 35% 55%;
+    --ring: 150 35% 55%;
+    --blush: 150 30% 85%;
+  }
+  .theme-admin {
+    --primary: 345 58% 82%;
+    --ring: 345 58% 82%;
+    --blush: 345 58% 90%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/30 shadow-xl;
+  }
+  .glass-strong {
+    @apply bg-white/80 backdrop-blur-2xl border border-white/40 shadow-2xl;
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--blush)));
+  }
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(43 95% 70%));
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--gold)));
+  }
+  .text-shimmer {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, hsl(var(--gold)), hsl(43 95% 80%), hsl(var(--gold)));
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+  .btn-interactive {
+    @apply rounded-full font-semibold transition-all duration-150;
+  }
+  .btn-interactive:hover { transform: scale(1.03); }
+  .btn-interactive:active { transform: scale(0.97); }
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px -8px hsl(var(--primary) / 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px hsl(var(--primary) / 0.3); }
+  50% { box-shadow: 0 0 24px hsl(var(--primary) / 0.6); }
+}
+@keyframes coinBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(15deg); }
+}
+@keyframes wave {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-25%) translateY(-3px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+@keyframes meshGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes jumpingJack {
+  0%, 100% { transform: scaleX(1) scaleY(1); }
+  25% { transform: scaleX(1.2) scaleY(0.9); }
+  50% { transform: scaleX(0.9) scaleY(1.15); }
+  75% { transform: scaleX(1.1) scaleY(0.95); }
+}
+
+.float-animation { animation: float 3s ease-in-out infinite; }
+.pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+.coin-bounce { animation: coinBounce 1s ease-in-out infinite; }
+.mesh-bg {
+  background: linear-gradient(-45deg, hsl(var(--cream)), hsl(var(--blush)), hsl(var(--lavender)), hsl(var(--cream)));
+  background-size: 400% 400%;
+  animation: meshGradient 20s ease infinite;
+}
+.jumping-jack { animation: jumpingJack 0.6s ease-in-out infinite; }
