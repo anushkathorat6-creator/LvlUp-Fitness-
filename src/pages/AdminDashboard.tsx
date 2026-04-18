@@ -116,8 +116,8 @@ const AdminDashboard = () => {
                       <input
                         value={searchQuery}
                         onChange={e => setSearchQuery(e.target.value)}
-                        placeholder="Search users..."
-                        className="w-full pl-10 pr-4 py-3 rounded-2xl bg-white/80 border border-input focus:ring-2 focus:ring-ring outline-none text-sm"
+                        placeholder="SEARCH USERS..."
+                        className="w-full pl-12 pr-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-green focus:ring-4 focus:ring-neon-green/10 outline-none text-sm font-black text-white uppercase tracking-widest placeholder:text-white/20 transition-all"
                       />
                     </div>
                     <div className="flex bg-muted rounded-full p-0.5">
@@ -247,7 +247,7 @@ const AdminDashboard = () => {
                   <div className="glass rounded-2xl p-6 space-y-5 max-w-lg">
                     <div>
                       <label className="text-sm text-muted-foreground block mb-1">App Name</label>
-                      <input value={appName} onChange={e => setAppName(e.target.value)} className="w-full px-4 py-3 rounded-2xl bg-white/80 border border-input focus:ring-2 focus:ring-ring outline-none text-sm" />
+                      <input value={appName} onChange={e => setAppName(e.target.value)} className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-green focus:ring-4 focus:ring-neon-green/10 outline-none text-sm font-black text-white uppercase tracking-widest transition-all" />
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-foreground">Maintenance Mode</span>

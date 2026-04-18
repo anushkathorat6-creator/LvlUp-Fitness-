@@ -110,7 +110,7 @@ const Onboarding = () => {
                   { key: 'targetWeight', label: 'Target Weight (kg)', type: 'number' },
                 ].map(f => (
                   <input key={f.key} value={(form as any)[f.key]} onChange={e => setForm({ ...form, [f.key]: e.target.value })} type={f.type} placeholder={f.label}
-                    className="w-full px-4 py-3 rounded-2xl bg-white/80 border border-input focus:ring-2 focus:ring-ring outline-none text-sm" />
+                    className="w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-green focus:ring-4 focus:ring-neon-green/10 outline-none text-sm font-black text-white tracking-widest placeholder:text-white/20 transition-all" />
                 ))}
                 {bmi && (
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-4 text-center">

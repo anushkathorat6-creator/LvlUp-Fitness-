@@ -71,7 +71,7 @@ const WaterTracking = () => {
 
           {/* Custom */}
           <div className="flex gap-2 w-full">
-            <input value={customMl} onChange={e => setCustomMl(e.target.value)} type="number" placeholder="Custom ml" className="flex-1 px-4 py-3 rounded-2xl bg-white/80 border border-input focus:ring-2 focus:ring-ring outline-none text-sm" />
+            <input value={customMl} onChange={e => setCustomMl(e.target.value)} type="number" placeholder="CUSTOM ML" className="flex-1 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-neon-green focus:ring-4 focus:ring-neon-green/10 outline-none text-sm font-black text-white uppercase tracking-widest placeholder:text-white/20 transition-all" />
             <button onClick={handleCustom} className="px-4 py-3 rounded-2xl gradient-primary text-primary-foreground font-semibold text-sm btn-interactive">
               <Plus className="w-4 h-4" />
             </button>

@@ -9,7 +9,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"Inter"', 'sans-serif'],
-        display: ['"Playfair Display"', 'serif'],
+        display: ['"Outfit"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -31,6 +31,11 @@ export default {
         gold: "hsl(var(--gold))",
         nude: "hsl(var(--nude))",
         mint: "hsl(var(--mint))",
+        neon: {
+          green: "#CCFF00",
+          blue: "#00F0FF",
+          purple: "#BC00FF",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
