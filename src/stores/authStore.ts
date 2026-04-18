@@ -154,7 +154,13 @@ export const useAuthStore = create<AuthState>()(
 
           const newProfile = { ...defaultProfile, fullName: name, email };
           await supabase.from('profiles').insert([
-            { id: data.user.id, ...newProfile, onboarding_complete: false }
+            { 
+              id: data.user.id, 
+              full_name: name, 
+              email: email, 
+              onboarding_complete: false,
+              role: 'user'
+            }
           ]);
           
           set({ 
