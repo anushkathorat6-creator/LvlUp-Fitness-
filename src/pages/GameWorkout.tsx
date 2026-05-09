@@ -78,12 +78,22 @@ const GameWorkout = () => {
     };
   }, []);
 
-  // Detection Logic Rep
+  // Detection Logic
+  const lastRunRef = useRef<number>(0);
+  
   const runDetection = useCallback(async () => {
     if (!videoRef.current || !canvasRef.current || (gameState !== 'playing' && gameState !== 'calibrating')) return;
 
+    // Throttle to ~20fps (50ms) to prevent lag
+    const now = Date.now();
+    if (now - lastRunRef.current < 50) {
+      animFrameRef.current = requestAnimationFrame(runDetection);
+      return;
+    }
+    lastRunRef.current = now;
+
     const pose = await getPose(videoRef.current);
-    const ctx = canvasRef.current.getContext('2d');
+    const ctx = canvasRef.current.getContext('2d', { alpha: false });
     if (!ctx || !pose) {
       animFrameRef.current = requestAnimationFrame(runDetection);
       return;

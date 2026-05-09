@@ -2,16 +2,26 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Dumbbell, Sparkles } from 'lucide-react';
+import { useAuthStore } from '@/stores/authStore';
 
 const Splash = () => {
   const navigate = useNavigate();
   const [progress, setProgress] = useState(0);
+  const isLoggedIn = useAuthStore(s => s.isLoggedIn);
 
   useEffect(() => {
     const interval = setInterval(() => setProgress(p => Math.min(p + 2, 100)), 50);
-    const timer = setTimeout(() => navigate('/login', { replace: true }), 2500);
+    
+    const timer = setTimeout(() => {
+      if (isLoggedIn) {
+        navigate('/dashboard', { replace: true });
+      } else {
+        navigate('/login', { replace: true });
+      }
+    }, 2500);
+
     return () => { clearInterval(interval); clearTimeout(timer); };
-  }, [navigate]);
+  }, [navigate, isLoggedIn]);
 
   return (
     <div className="min-h-screen mesh-bg flex flex-col items-center justify-center relative overflow-hidden">
